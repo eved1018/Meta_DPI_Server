@@ -1,0 +1,74 @@
+{% extends "Main_app/base.html"%}
+{% load crispy_forms_tags %}
+{% block content%}
+   <header>
+        <div class='jumbotron jumbotron-fluid height25p banner' style="background:transparent !important">
+            <div class='container 10p'>
+                <div class='contentBox h10 text-center'>
+                    <div>
+                        <h1>MetaDPI WebServer</h1>
+                        <p class='text-center'>
+                          Meta-DPI is a protein interface prediction program, that combines three prediction algorithms (Dockpred, Ispred4, and Predus) to more accurately predict protein interfaces.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </header>
+    <body>   
+      
+        <div class="container mt-5">
+            <div class="col-sm-12 col-lg-4 mr-auto ml-auto border p-4">
+                <form method="post" >
+                  <div class="form-group">
+                    <label><strong>PDB Input</strong></label>
+                   
+                        {% csrf_token %}
+                        {{ form }}
+                  </div>
+                  <div class="form-group">
+                    <button id='btn1' class="btn btn-primary btn-block" type="submit">Submit</button>
+                   
+                  </div>
+                </form>
+              </div>
+              <br>
+              <br>
+
+            <div class="col-sm-12 col-lg-4 mr-auto ml-auto border p-4">
+                <form method="post" enctype="multipart/form-data">
+                  <div class="form-group">
+                    <label><strong>Upload Files</strong></label>
+                    <div class="custom-file">
+                        {% csrf_token %}
+                        {{form2}}
+                    <label class="custom-file-label" for="customFile">Choose file</label>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <button id='submit-btn' class="btn btn-primary btn-block" type="submit">Submit</button>
+                    
+                  </div>
+                </form>
+            </div>
+            
+            
+                        
+                    
+            </div>
+            </div>
+        </div> 
+   
+      
+
+    </body>
+
+   
+    
+
+
+
+    {{ message }}
+
+{% endblock content%}
