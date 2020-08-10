@@ -1,1 +1,2 @@
-web: gunicorn Meta_DPI_Server.wsgi:application
+web: gunicorn Meta_DPI_Server.wsgi
+
