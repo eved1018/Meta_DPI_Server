@@ -1,1 +1,1 @@
-web: gunicorn Meta_DPI_Server.wsgi --log-file - 
+web: python manage.py runserver 0.0.0.0:$PORT 
