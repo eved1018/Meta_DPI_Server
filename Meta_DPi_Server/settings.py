@@ -27,7 +27,7 @@ SECRET_KEY = '78df=&n+-opza5x#3%7t)xqkqe4ixhvym2r2#%)f=djjd=sahc'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['metadpiapp.herokuapp.com']
+ALLOWED_HOSTS = ['metadpiapp.herokuapp.com','127.0.0.1','localhost']
 
 
 # Application definition

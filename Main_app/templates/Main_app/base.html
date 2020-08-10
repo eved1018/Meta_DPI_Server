@@ -52,6 +52,29 @@
             <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
             <script id="rendered-js"></script> 
             <script>
+              $(document).ready(function () {
+                  $('input[type="file"]').on("change", function () {
+                  let filenames = [];
+                  let files = document.getElementById("customFile").files;
+                  if (files.length > 1) {
+                      filenames.push("Total Files (" + files.length + ")");
+                  } else {
+                      for (let i in files) {
+                      if (files.hasOwnProperty(i)) {
+                          filenames.push(files[i].name);
+                      }
+                      }
+                  }
+                  $(this).
+                  next(".custom-file-label").
+                  html(filenames.join(","));
+                  });
+              });
+                  </script> 
+             
+          </script>
+            </script>
+            <script>
             $('#btn1').click(function() {
                 $('#btn1').html('<span class="spinner-border spinner-border-sm mr-2" role="status" aria-hidden="true"></span>Loading...').addClass('disabled');
               });

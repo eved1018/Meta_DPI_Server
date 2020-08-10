@@ -105,6 +105,7 @@ def Meta_DPI_Setup(pdb,chain):
     results["col1"] = ["1","2",'3']
     results["col2"] = ["1","2",'3']
     results = results.to_html(index=False)
+
     tree = '/Users/evanedelstein/Desktop/Research_Evan/Raji_Summer2019_atom/Data_Files/CrossVal_logreg_RF/5foldCV/Crossvaltest47/Trees/Rftree_CV1.svg'
 
     # delete all files in temp when done:
@@ -166,7 +167,8 @@ def home(request):
     
     form = PDBForm
     file_form = FileForm
-    return render(request,'Main_app/home.html',{'title':home ,'form': form ,'form2':file_form ,'error_message': error_message  } )
+    context ={'title':home ,'form': form ,'form2':file_form ,'error_message': error_message  }
+    return render(request,'Main_app/home.html',context )
 
 
     
