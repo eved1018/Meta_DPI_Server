@@ -48,19 +48,23 @@ def Ispred_get(pdb,chain):
         while result is None:
             try:
                 br.open(target_url)
-                Ispred_to_Frame(target_url)
+                r = requests.get('https://ispred4.biocomp.unibo.it/ispred/default/downloadjob?jobid={}'.format(jobid), stream=True,headers={'User-agent': 'Mozilla/5.0'})
+                if r.status_code == 200:
+                    Ispred_frame = Ispred_to_Frame(target_url)
+                    result = 1
+                    return Ispred_frame
 
-                # r = requests.get('https://ispred4.biocomp.unibo.it/ispred/default/downloadjob?jobid={}'.format(jobid), stream=True,headers={'User-agent': 'Mozilla/5.0'})
-                # if r.status_code == 200:
-                #     with open("{}/{}_{}.txt".format(output_directory,pdb,chain), 'wb') as f:
-                #         r.raw.decode_content = True
-                #         shutil.copyfileobj(r.raw, f)
-                #         result = 1
+                    # with open("{}/{}_{}.txt".format(output_directory,pdb,chain), 'wb') as f:
+                    #     r.raw.decode_content = True
+                    #     shutil.copyfileobj(r.raw, f)
+                    #     result = 1
 
-                        # ispredfile  = pd.read_csv("{}/{}_{}.txt".format(output_directory,pdb,chain))
-                        # print(ispredfile.head())
-                # else:
-                #     result = 1
-                #     print(r.status_code)
+                    #     ispredfile  = pd.read_csv("{}/{}_{}.txt".format(output_directory,pdb,chain))
+                    #     print(ispredfile.head())
+                else:
+                    result = 1
+                    print(r.status_code)
             except:
                 pass
+
+

@@ -42,6 +42,7 @@ def Ispred_to_Frame(url):
         Ispred_frame = Ispred_frame.rename(columns={'Probability': 'Ispred' })
         Ispred_frame=Ispred_frame.replace({'-': 0}) 
     print(Ispred_frame.head())
+    return Ispred_frame
 
     
 
