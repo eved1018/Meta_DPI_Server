@@ -1,20 +1,5 @@
 {% extends "Main_app/base.html" %}
 {% block content%}
-<header>
-    <div class='jumbotron jumbotron-fluid height25p banner' style="background:transparent !important">
-        <div class='container 10p'>
-            <div class='contentBox h10 text-center'>
-                <div>
-                    <h1>MetaDPI WebServer</h1>
-                    <p class='text-center'>
-                      Meta-DPI is a protein interface prediction program, that combines three prediction algorithms (Dockpred, Ispred4, and Predus) to more accurately predict protein interfaces.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-    </div>
-</header>
     <div class="container">
         <div class="row ">
             <div class='col-md-2'>
@@ -27,14 +12,14 @@
             <div class="col-md-4"><div class="card" style="width: 18rem;">
                 <div class="card-body">
                   <h5 class="card-title">Predus:</h5>
-                  <p class="card-text">l short description </p>
+                  <p class="card-text">PredUs is a method to predict protein-protein interfaces of a given monomeric query protein using its close and remote structural neighbors. Potential interfacial residues are identified by iteratively “mapping” interaction sites of each structural neighbor involved in a complex to individual residues in the query protein (see figure). Residues which frequently have interactions mapped to them are defined to be interfacial. </p>
                   <a href="https://honiglab.c2b2.columbia.edu/PredUs/index_omega.html" target="_blank" class="card-link">Predus</a>
                 </div>
               </div></div>
             <div class="col-md-4"><div class="card" style="width: 18rem;">
                 <div class="card-body">
                   <h5 class="card-title">Ispred:</h5>
-                  <p class="card-text">short description </p>
+                  <p class="card-text">ISPRED4 (Interaction Site PREDictor version 4) is a web-server for predicting protein-protein interaction sites starting from protein structure. ISPRED4 adopts machine-learning methods (SVM+CRF) to predict interaction state of each residue in the protein surface by extracting several features from protein sequence and structure. </p>
                   <a href="https://ispred4.biocomp.unibo.it/welcome/default/index" target="_blank" class="card-link">Ispred</a>
                 </div>
               </div></div>

@@ -2,7 +2,7 @@
 {% load crispy_forms_tags %}
 {% block content%}
    <header>
-        <div class='jumbotron jumbotron-fluid height25p banner' style="background:transparent !important">
+        <div class='jumbotron jumbotron-fluid p-4 banner' style="background:bg-steel !important">
             <div class='container 10p'>
                 <div class='contentBox h10 text-center'>
                     <div>
@@ -18,11 +18,36 @@
     </header>
     <body>   
       
-        <div class="container mt-5">
+        <div class="container">
             <div class="col-sm-12 col-lg-4 mr-auto ml-auto border p-4">
                 <form method="post" >
                   <div class="form-group">
+                    
                     <label><strong>PDB Input</strong></label>
+                    <!-- Button trigger modal -->
+                      <button type="button" class="btn btn-secondary float-right" data-toggle="modal" data-target="#exampleModal" style="margin-bottom: 15px;">
+                        ?
+                      </button>
+
+                      <!-- Modal -->
+                      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel">PDB UPLOAD</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              HERES HOW IT WORKS
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                    
                         {% csrf_token %}
                         {{ form }}
@@ -40,6 +65,29 @@
                 <form method="post" enctype="multipart/form-data">
                   <div class="form-group">
                     <label><strong>Upload Files</strong></label>
+                    <button type="button" class="btn btn-secondary float-right" data-toggle="modal" data-target="#exampleModal" style="margin-bottom: 15px;">
+                      ?
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">FILE UPLOAD</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            HERES HOW IT WORKS
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                     <div class="custom-file">
                         {% csrf_token %}
                         {{form2}}
@@ -55,13 +103,14 @@
             
             
                         
-                    
-            </div>
+          
+              </div>
             </div>
         </div> 
+
    
       
-
+    
     </body>
 
    
