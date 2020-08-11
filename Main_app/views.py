@@ -14,9 +14,9 @@ import shutil
 import mechanize
 import requests
 import time
-from HTTPHandle import handle_uploaded_file,Parser
-from HTTPParser import Ispred_to_Frame
-from Ispred_get import Ispred_get
+from .HTTPHandle import handle_uploaded_file,Parser
+from Main_app.HTTPParser import Ispred_to_Frame
+from .Ispred_get import Ispred_get
 
 
 

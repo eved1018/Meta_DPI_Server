@@ -14,7 +14,7 @@ import shutil
 import mechanize
 import requests
 import time
-from HTTPParser import Ispred_to_Frame
+from .HTTPParser import Ispred_to_Frame
 
 def Ispred_get(pdb,chain):
     proteinname = pdb+'.'+chain
@@ -59,8 +59,8 @@ def Ispred_get(pdb,chain):
 
                         # ispredfile  = pd.read_csv("{}/{}_{}.txt".format(output_directory,pdb,chain))
                         # print(ispredfile.head())
-                else:
-                    result = 1
-                    print(r.status_code)
+                # else:
+                #     result = 1
+                #     print(r.status_code)
             except:
                 pass
