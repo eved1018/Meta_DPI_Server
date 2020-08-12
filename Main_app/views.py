@@ -17,11 +17,6 @@ import time
 from .HTTPHandle import handle_uploaded_file,Parser,Meta_DPI_Setup
 
 
-
-
-
-
-
 def home(request):
     form = PDBForm(request.POST)
     file_form = FileForm(request.POST)
