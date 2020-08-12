@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'crispy_forms',
+    'django_celery_results',
     
 
 ]
@@ -127,3 +128,4 @@ PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 STATIC_URL = '/static/'
 
 crispy_template_pack='bootstrap4'
+

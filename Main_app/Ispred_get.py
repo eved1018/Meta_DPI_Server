@@ -23,6 +23,7 @@ import pandas as pd
 
 
 
+
 def Ispred_to_Frame(url):
     # for testing 
     # url = 'https://ispred4.biocomp.unibo.it/ispred/default/display_results.html?jobid=05b2b1e1-d9ff-449a-acb2-ff06caad6a1c'
@@ -55,7 +56,6 @@ def Ispred_to_Frame(url):
         Ispred_frame=Ispred_frame.replace({'-': 0}) 
     print(Ispred_frame.head())
     return Ispred_frame
-
 
 
 
