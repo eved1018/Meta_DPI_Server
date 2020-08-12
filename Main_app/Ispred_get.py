@@ -18,9 +18,7 @@ import urllib.request
 from pprint import pprint
 from html_table_parser import HTMLTableParser
 import pandas as pd
-import requests
-from rq import Queue
-from worker import conn
+
 
 
 
