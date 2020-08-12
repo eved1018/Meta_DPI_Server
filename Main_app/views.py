@@ -52,5 +52,7 @@ def Refrences(request):
     
     return render(request,'Main_app/Refrences.html')
     
+def Google(request):
+    return render(request,'Main_app/googledc9c387d3cf4e6a9.html')
 
 
