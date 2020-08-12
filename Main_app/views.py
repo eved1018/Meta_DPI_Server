@@ -15,10 +15,8 @@ import mechanize
 import requests
 import time
 from .HTTPHandle import handle_uploaded_file,Parser,Meta_DPI_Setup
-from djutils.decorators import async
 
 
-@async
 def home(request):
     form = PDBForm(request.POST)
     file_form = FileForm(request.POST)
