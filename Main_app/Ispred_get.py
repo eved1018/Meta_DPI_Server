@@ -18,7 +18,9 @@ import urllib.request
 from pprint import pprint
 from html_table_parser import HTMLTableParser
 import pandas as pd
+from background_task import background
 
+@background()
 def Ispred_to_Frame(url):
     # for testing 
     # url = 'https://ispred4.biocomp.unibo.it/ispred/default/display_results.html?jobid=05b2b1e1-d9ff-449a-acb2-ff06caad6a1c'
@@ -52,6 +54,9 @@ def Ispred_to_Frame(url):
     print(Ispred_frame.head())
     return Ispred_frame
 
+
+
+@background()
 def Ispred_get(pdb,chain):
     proteinname = pdb+'.'+chain
     print(proteinname)
