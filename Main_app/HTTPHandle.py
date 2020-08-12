@@ -15,6 +15,8 @@ import mechanize
 import requests
 import time
 from .Ispred_get import Ispred_get
+from .Dockpred_get import Dockpred_get
+
 
 def handle_uploaded_file(datafile):
     pdbs= []
@@ -90,6 +92,10 @@ def Meta_DPI_Setup(pdb,chain):
        
     
     ispred_frame = Ispred_get(pdb,chain)
+    # dockframe = Dockpred_get(pdb,chain)
+    # predus get 
+    # 
+    
     
     # do something with pdb file...
     # predition_score_get()
