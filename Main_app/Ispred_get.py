@@ -91,10 +91,12 @@ def Ispred_get(pdb,chain):
         while result is None:
             try:
                 br.open(target_url)
+                print('hello')
                 r = requests.get('https://ispred4.biocomp.unibo.it/ispred/default/downloadjob?jobid={}'.format(jobid), stream=True,headers={'User-agent': 'Mozilla/5.0'})
                 if r.status_code == 200:
                     # q = Queue(connection=conn)
                     # Ispred_frame = q.enqueue(Ispred_to_Frame(target_url), 'http://heroku.com')
+                    print('hello2')
                     Ispred_frame = Ispred_to_Frame(target_url)
                     result = 1
                     return Ispred_frame
