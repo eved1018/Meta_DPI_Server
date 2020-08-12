@@ -19,6 +19,9 @@ from pprint import pprint
 from html_table_parser import HTMLTableParser
 import pandas as pd
 import requests
+from rq import Queue
+from worker import conn
+
 
 
 
@@ -92,7 +95,7 @@ def Ispred_get(pdb,chain):
                 br.open(target_url)
                 r = requests.get('https://ispred4.biocomp.unibo.it/ispred/default/downloadjob?jobid={}'.format(jobid), stream=True,headers={'User-agent': 'Mozilla/5.0'})
                 if r.status_code == 200:
-
+                    q = Queue(connection=conn)
                     Ispred_frame = q.enqueue(Ispred_to_Frame(target_url), 'http://heroku.com')
                     # Ispred_frame = Ispred_to_Frame(target_url)
                     result = 1
