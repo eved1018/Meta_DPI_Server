@@ -16,6 +16,8 @@ import requests
 import time
 from .Ispred_get import Ispred_get
 from .Dockpred_get import Dockpred_get
+import concurrent.futures
+
 
 
 def handle_uploaded_file(datafile):
