@@ -32,6 +32,7 @@ def handle_uploaded_file(datafile):
     with concurrent.futures.ProcessPoolExecutor() as executor:
         results = executor.map( Parser, pdbs)
         for i in results:
+            context = i 
             return context 
     # for pdb in pdbs:
     #     pdb = pdb.rstrip("\n")
