@@ -27,7 +27,7 @@ import pandas as pd
 def Ispred_to_Frame(url):
    
     xhtml = urllib.request.urlopen(url).read().decode('utf-8')
-    print(xhtml)
+    # print(xhtml)
     # for testing 
     # url = 'https://ispred4.biocomp.unibo.it/ispred/default/display_results.html?jobid=05b2b1e1-d9ff-449a-acb2-ff06caad6a1c'
     # xhtml = url_get_contents(url).decode('utf-8')
