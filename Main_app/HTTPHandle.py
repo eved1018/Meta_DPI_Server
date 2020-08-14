@@ -95,15 +95,16 @@ def Meta_DPI_Setup(pdb,chain):
     # dockframe = Dockpred_get(pdb,chain)
     # predus get 
     # 
-    
-    
     # do something with pdb file...
     # predition_score_get()
     # this is where we call the functions to perfrom data collection and RF/Logreg
     # Meta_DPI()
     # this is where we will prepare the results for output. 
     if ispred_frame is None:
+        print('data not handled')
         error = 'data not handled '
+        results= ''
+        
     else:
         results = ispred_frame
         results = results.to_html(index=False)
@@ -114,5 +115,5 @@ def Meta_DPI_Setup(pdb,chain):
     # delete all files in temp when done:
     # for filename in os.listdir('Temp'):
     # os.remove('Temp/{}'.format(filename))
-
+    print(results)
     return results, tree, error 

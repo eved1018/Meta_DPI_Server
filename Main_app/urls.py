@@ -7,5 +7,4 @@ urlpatterns = [
     path('Results/', views.Results, name = "Main_App_Results"),
     path('About/', views.About, name = "Main_App_about"),
     path('Refrences/',views.Refrences,name="Main_App_Refrences"),
-    path('Google/',views.Google,name="googledc9c387d3cf4e6a9")
 ]

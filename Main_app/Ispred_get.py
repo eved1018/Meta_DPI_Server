@@ -25,12 +25,12 @@ import pandas as pd
 
 
 def Ispred_to_Frame(url):
+   
+    xhtml = urllib.request.urlopen(url).read().decode('utf-8')
+    print(xhtml)
     # for testing 
     # url = 'https://ispred4.biocomp.unibo.it/ispred/default/display_results.html?jobid=05b2b1e1-d9ff-449a-acb2-ff06caad6a1c'
-    xhtml = url_get_contents(url).decode('utf-8')
-    
-
-
+    # xhtml = url_get_contents(url).decode('utf-8')
     p = HTMLTableParser()
     p.feed(xhtml)
     # pprint(p.tables)
@@ -86,32 +86,35 @@ def Ispred_get(pdb,chain):
         br.submit(type='submit')
         target_url = 'https://ispred4.biocomp.unibo.it/ispred/default/display_results.html?jobid={}'.format(jobid)
         output_directory = './Temp/Ispred' 
-        # print(target_url)
-        result = None
-        while result is None:
-            try:
-                br.open(target_url)
-                print('hello')
-                r = requests.get('https://ispred4.biocomp.unibo.it/ispred/default/downloadjob?jobid={}'.format(jobid), stream=True,headers={'User-agent': 'Mozilla/5.0'})
-                if r.status_code == 200:
-                    # q = Queue(connection=conn)
-                    # Ispred_frame = q.enqueue(Ispred_to_Frame(target_url), 'http://heroku.com')
-                    print('hello2')
-                    Ispred_frame = Ispred_to_Frame(target_url)
-                    result = 1
-                    return Ispred_frame
+        print(target_url)
+        time.sleep(15)
+        Ispred_frame = Ispred_to_Frame(target_url)
+        return Ispred_frame
 
-                    # with open("{}/{}_{}.txt".format(output_directory,pdb,chain), 'wb') as f:
-                    #     r.raw.decode_content = True
-                    #     shutil.copyfileobj(r.raw, f)
-                    #     result = 1
+        # result = None
+        # while result is None:
+        #     try:
+        #         br.open(target_url)
+                
+        #         r = requests.get('https://ispred4.biocomp.unibo.it/ispred/default/downloadjob?jobid={}'.format(jobid), stream=True,headers={'User-agent': 'Mozilla/5.0'})
+        #         if r.status_code == 200: 
+        #             # print('hello2')
+        #             Ispred_frame = Ispred_to_Frame(target_url)
+        #             result = 1
+        #             return Ispred_frame
 
-                    #     ispredfile  = pd.read_csv("{}/{}_{}.txt".format(output_directory,pdb,chain))
-                    #     print(ispredfile.head())
-                else:
-                    result = 1
-                    print(r.status_code)
-            except:
-                pass
+        #             # with open("{}/{}_{}.txt".format(output_directory,pdb,chain), 'wb') as f:
+        #             #     r.raw.decode_content = True
+        #             #     shutil.copyfileobj(r.raw, f)
+        #             #     result = 1
+
+        #             #     ispredfile  = pd.read_csv("{}/{}_{}.txt".format(output_directory,pdb,chain))
+        #             #     print(ispredfile.head())
+        #         else:
+        #             result = 1
+        #             print('else')
+        #             print(r.status_code)
+        #     except:
+        #         pass
 
 

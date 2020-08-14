@@ -19,17 +19,22 @@ from .HTTPHandle import handle_uploaded_file,Parser,Meta_DPI_Setup
 
 
 def home(request):
+    start = time.perf_counter()
     form = PDBForm(request.POST)
     file_form = FileForm(request.POST)
     error_message = ""
     if request.method == "POST" and form.is_valid():
         pdb = form.cleaned_data['pdb']
         context = Parser(pdb)
+        finish = time.perf_counter()
+        print(f"finished in {round((finish - start)/60,2 )} minutes(s)")
         return render(request,'Main_app/Results.html' ,context)
     elif request.method == 'POST' and request.FILES:
         file_form = FileForm(request.POST, request.FILES)
         datafile = request.FILES['file']
         context  = handle_uploaded_file(datafile)
+        finish = time.perf_counter()
+        print(f"finished in {round((finish - start)/60,2 )} minutes(s)")
         return render(request,'Main_app/Results.html' ,context)
     
     form = PDBForm
@@ -40,6 +45,7 @@ def home(request):
 
     
 def Results(request): 
+    
     return render(request,'Main_app/Results.html')
     
     
@@ -52,7 +58,5 @@ def Refrences(request):
     
     return render(request,'Main_app/Refrences.html')
     
-def Google(request):
-    return render(request,'Main_app/googledc9c387d3cf4e6a9.html')
 
 
