@@ -26,10 +26,14 @@ def handle_uploaded_file(datafile):
             pdb = line.decode('utf8')
             pdbs.append(pdb)
         f.close()
-    for pdb in pdbs:
-        pdb = pdb.rstrip("\n")
-        context = Parser(pdb)
-    return context 
+    with concurrent.futures.ProcessPoolExecutor() as executor:
+        results = executor.map( Parser, pdb)
+        for i in results
+            return context 
+    # for pdb in pdbs:
+    #     pdb = pdb.rstrip("\n")
+    #     context = Parser(pdb)
+    # return context 
     
 
 def predition_score_get():
