@@ -28,8 +28,9 @@ def handle_uploaded_file(datafile):
             pdb = line.decode('utf8')
             pdbs.append(pdb)
         f.close()
+    
     with concurrent.futures.ProcessPoolExecutor() as executor:
-        results = executor.map( Parser, pdb)
+        results = executor.map( Parser, pdbs)
         for i in results
             return context 
     # for pdb in pdbs:
