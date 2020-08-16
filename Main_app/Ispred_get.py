@@ -26,15 +26,12 @@ import pandas as pd
 
 def Ispred_to_Frame(url):
 
-    try: 
-        urllib.request.urlopen(url)
-        xhtml = urllib.request.urlopen(url).read().decode('utf-8')
-        pass
+    try: urllib.request.urlopen(url) 
     except urllib.error.URLError as e:
-    print(e.reason)
+        print(e.reason)
         
         
-
+    xhtml = urllib.request.urlopen(url).read().decode('utf-8')
     # print(xhtml)
     # for testing 
     # url = 'https://ispred4.biocomp.unibo.it/ispred/default/display_results.html?jobid=05b2b1e1-d9ff-449a-acb2-ff06caad6a1c'

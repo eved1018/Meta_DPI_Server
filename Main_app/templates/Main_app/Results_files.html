@@ -1,0 +1,9 @@
+{% extends "Main_app/base.html" %}
+{% block content%}
+    <h1>Meta DPI Server Results for {{pdb}} </h1>
+    {{data}}
+    {{results|safe}}
+    {{error_message}}
+
+    <!-- <img src= "https://raw.githubusercontent.com/eved1018/ProteinInterfaceResearch_Summer2019/458bba4217fee9f894106c6018cd060c7aa575a9/Data_Files/CrossVal_logreg_RF/10%20fold%20CV/Crossvaltest47/Trees/Rftree_CV1.svg" alt="" width="1000" height="1200"> -->
+{% endblock content%}

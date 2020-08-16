@@ -26,14 +26,22 @@ def handle_uploaded_file(datafile):
         lines = f.readlines()
         for line in lines:
             pdb = line.decode('utf8')
+            pdb = pdb.split('\n')
+            pdb =pdb[0]
             pdbs.append(pdb)
         f.close()
+    print(pdbs)
+    resulst_dic = {}
     
     with concurrent.futures.ProcessPoolExecutor() as executor:
         results = executor.map( Parser, pdbs)
         for i in results:
-            context = i 
-            return context 
+            (pdb, results, tree, error_message) = i
+            resulst_dic[pdb] = results
+    tree = ""
+    error_message = ""
+    context = {'pdb': pdbs,'results': resulst_dic, 'tree':tree , 'error_message' : error_message}
+    return context 
     # for pdb in pdbs:
     #     pdb = pdb.rstrip("\n")
     #     context = Parser(pdb)
